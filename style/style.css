@@ -1,0 +1,28 @@
+.indicator-group {
+    position:relative;
+    display:inline-block;
+    padding:10px 20px;
+    margin:0 20px;
+    font-size:0;
+}
+
+.indicator {
+    display:inline-block;
+    width:10px;
+    height:10px;
+    background: grey;
+    border-radius:5px;
+}
+
+.indicator.current {
+    background:red;
+}
+
+.indicator + .indicator {
+    margin-left:10px;
+}
+
+.center-align {
+  width: 20%;
+  margin: 0 auto;
+}
