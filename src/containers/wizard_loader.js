@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import WizardElement from './wizard_element';
 import WizardIndicators from './wizard_indicators';
+import WizardItemCount from '../components/wizard_item_count';
 
 class WizardLoader extends Component {
   constructor(props) {
@@ -20,29 +21,30 @@ class WizardLoader extends Component {
             <button type="button" className="btn btn-secondary">Contact support</button>
             <button type="button" className="btn btn-secondary">Send to repair</button>
           </div>
-        </div>);
+        </div>
+      );
     }
 
     return (
-      <li key={currentContent.id}>
+      <div key={currentContent.id}>
         <WizardElement
-          content={currentContent.content}
-          question={currentContent.titleQuestion}
+          currentContent={currentContent}
           id={this.props.currentContentId}
-          visible={currentContent.visible}
         />
-      </li>
+    </div>
     );
   }
 
   render() {
     return (
       <div className="container">
-        <div className="center-align"><h5>{ this.props.content.length } solutions found</h5>
-        <WizardIndicators /></div>
-        <ul>
+        <div className="center-align">
+          <WizardItemCount contentCount={this.props.content.length} />
+          <WizardIndicators />
+        </div>
+        <div>
           { this.renderWizard() }
-        </ul>
+        </div>
       </div>
     );
   }
